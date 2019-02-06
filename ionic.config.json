@@ -1,8 +1,7 @@
 {
-  "name": "Cuaca",
-  "app_id": "",
-  "type": "ionic-angular",
+  "name": "Taz",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "ionic-angular"
 }

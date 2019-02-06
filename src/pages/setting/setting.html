@@ -13,21 +13,27 @@
 	<ion-col width-100>
 	<ion-list>
 	 <form (ngSubmit)="saveForm()">
+
+			<ion-item>
+					<ion-select item-left [(ngModel)]="city" name="countrycode" [selectedText]="city" [selectOptions]="{title:'Select Your City'}">
+						<ion-option *ngFor="let country of countries" [value]="country">{{country}}</ion-option>
+					</ion-select>
+				</ion-item>
+
 			<ion-item>
 				<ion-label fixed>
-					Bandar 
+					City 
 				</ion-label>
-				<!-- <ion-input [(ngModel)]="city" name="city" id="city" type"text"></ion-input> -->
-				<ion-input [(ngModel)]="city" name="city" type="text"></ion-input>
+				<ion-input [(ngModel)]="city" name="city" type="text" disabled=true></ion-input>
 			</ion-item>
 			<ion-item>
 				<ion-label fixed>
-					Negara
+					Country
 				</ion-label>
 				<!-- <ion-input [(ngModel)]="state" name="state" type"text"></ion-input> -->
-				<ion-input [(ngModel)]="state" name="state" type="text"></ion-input>
+				<ion-input [(ngModel)]="state" name="state" type="text" disabled=true></ion-input>
 			</ion-item>
-			<button ion-button type="submit" block>Simpan</button>
+			<button ion-button type="submit" block>Store it!</button>
 		</form> 
 	</ion-list>
 	</ion-col>

@@ -11,12 +11,21 @@ import { HomePage } from '../home/home';
 export class SettingPage {
 	city:string;
 	state:string;
-
+	countries:any;
 
   constructor(
   	public navCtrl: NavController, 
   	public navParams: NavParams,
   	private storage:Storage) {
+
+			this.countries = [
+				'Sepang',
+				'Kuala Lumpur',
+				'Pulau Pinang',
+				'Bagan Serai',
+				'Kerteh',
+				'Labuan'
+		];
 
   	this.storage.get('location').then((val)=>{
   		if(val != null){
