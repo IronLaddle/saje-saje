@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Loading, LoadingController } from 'ionic-angular';
 import { WeatherProvider } from '../../providers/weather/weather'; 
 import { Storage } from '@ionic/storage';
+import { MessageHelper } from '../../providers/message-helper/message-helper';
 
 @Component({
   selector: 'page-home',
@@ -11,6 +12,7 @@ export class HomePage {
 	weather:any;
 	city1:string;
 	state1:string;
+	loading:Loading;
 
 	location:{
 		city:string;
@@ -20,13 +22,18 @@ export class HomePage {
   constructor(
   	public navCtrl: NavController, 
   	private weatherProvider:WeatherProvider,
-  	private storage:Storage) {
+	private storage:Storage, 
+	private messageHelper: MessageHelper,
+	public loadingCtrl: LoadingController) {
 
 	}
 	
   ionViewWillEnter(){
+
+	let loader = this.messageHelper.showProcessLoader(this.loading, this.loadingCtrl);
+	loader.present().then(()=>{
   	this.storage.get('location').then((val) => { 
-			console.log(this.storage.get('location')); 
+	loader.dismiss(); 
   		if(val != null){
 			  //this.location = JSON.parse(val);
 			  let location = JSON.parse(val);
@@ -40,7 +47,8 @@ export class HomePage {
 				}
 				this.getWeather(this.location.city,this.location.state);
   		}
-  	})
+	  })
+	})
   	
 	}
 	

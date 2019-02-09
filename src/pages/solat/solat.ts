@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 import { PrayertimeProvider } from '../../providers/prayertime/prayertime';
 import { Storage } from '@ionic/storage';
+import { MessageHelper } from '../../providers/message-helper/message-helper';
 
 @Component({
   selector: 'page-solat',
@@ -13,15 +14,24 @@ export class SolatPage {
   city1:string;
   state1:string;
   zone:string;
+  loading:Loading;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    private prayerTime:PrayertimeProvider,private storage:Storage) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private prayerTime:PrayertimeProvider,
+    private storage:Storage,
+    private messageHelper: MessageHelper,
+	  public loadingCtrl: LoadingController) {
   }
 
   ionViewWillEnter(){
+    let loader = this.messageHelper.showProcessLoader(this.loading, this.loadingCtrl);
+	  loader.present().then(()=>{
+
   	this.storage.get('location').then((val) => { 
-			console.log(this.storage.get('location')); 
+			loader.dismiss();
   		if(val != null){
 			  let location = JSON.parse(val);
         this.city1 = location.city;
@@ -48,6 +58,7 @@ export class SolatPage {
         }
         
   		}
+    })
     })
   }
 

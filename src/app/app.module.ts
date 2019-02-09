@@ -17,6 +17,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { WeatherProvider } from '../providers/weather/weather';
 import { SolatPage } from '../pages/solat/solat';
 import { PrayertimeProvider } from '../providers/prayertime/prayertime';
+import { MessageHelper } from '../providers/message-helper/message-helper';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { PrayertimeProvider } from '../providers/prayertime/prayertime';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WeatherProvider,
-    PrayertimeProvider
+    PrayertimeProvider,
+    MessageHelper
   ]
 })
 export class AppModule {}
