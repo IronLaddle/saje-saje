@@ -1,0 +1,33 @@
+<ion-header>
+ 
+  <ion-navbar>
+    <ion-title>Add Event</ion-title>
+  </ion-navbar>
+ 
+</ion-header>
+ 
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Event name</ion-label>
+    <ion-input type="text" [(ngModel)]="eventsItem.eventName"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>Event Description</ion-label>
+      <ion-input type="text" [(ngModel)]="eventsItem.eventDesc"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Event Date</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="eventsItem.eventDate"></ion-datetime>
+  </ion-item>
+<ion-item>
+  <ion-label floating>Event Start Time</ion-label>
+  <ion-datetime displayFormat="h A" pickerFormat="h A" [(ngModel)]="eventsItem.eventStartTime"></ion-datetime>
+</ion-item>
+<ion-item>
+  <ion-label floating>Event Place</ion-label>
+  <ion-input type="text" [(ngModel)]="eventsItem.eventPlace"></ion-input>
+</ion-item>
+  <br>
+  <button ion-button block (click)="addEventItem(eventsItem)" color="ButtonColor" round>Add Event</button>
+
+</ion-content>

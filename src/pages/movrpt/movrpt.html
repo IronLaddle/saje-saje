@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Moventum Reports</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-card *ngFor="let report of reports">
+        <ion-item style="text-align :center">
+          <ion-label text-wrap> <strong>{{report.name}}</strong></ion-label>
+        </ion-item>
+
+        <ion-card-content>
+
+            <ion-row>
+                <ion-item text-wrap>
+                <strong>{{report.desc}}</strong>
+                </ion-item>
+            </ion-row>
+
+            <ion-row>
+              <ion-item text-wrap>
+              <strong>{{report.desc1}}</strong>
+              </ion-item>
+          </ion-row>
+
+      </ion-card-content>
+    </ion-card> 
+
+</ion-content>

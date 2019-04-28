@@ -18,6 +18,28 @@ import { WeatherProvider } from '../providers/weather/weather';
 import { SolatPage } from '../pages/solat/solat';
 import { PrayertimeProvider } from '../providers/prayertime/prayertime';
 import { MessageHelper } from '../providers/message-helper/message-helper';
+import { TimetablePage } from '../pages/timetable/timetable';
+import { MovrptPage } from '../pages/movrpt/movrpt';
+
+// Import the AF2 Module
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { ListPage } from '../pages/list/list';
+import { EditnotePage } from '../pages/editnote/editnote';
+import { AddnotePage } from '../pages/addnote/addnote';
+import { EventPage } from '../pages/event/event';
+import { AddeventPage } from '../pages/addevent/addevent';
+
+// AF2 Settings
+export const firebaseConfig = {
+  apiKey: "AIzaSyBJ5aVRLvWLA9fE-9-IX0IIcHYlfBrXvy8",
+  authDomain: "my-project-97d4e.firebaseapp.com",
+  databaseURL: "https://my-project-97d4e.firebaseio.com",
+  projectId: "my-project-97d4e",
+  storageBucket: "my-project-97d4e.appspot.com",
+  messagingSenderId: "432434337000"
+};
 
 @NgModule({
   declarations: [
@@ -27,13 +49,22 @@ import { MessageHelper } from '../providers/message-helper/message-helper';
     HomePage,
     TabsPage,
     SolatPage,
-    SettingPage
+    SettingPage,
+    TimetablePage,
+    MovrptPage,
+    ListPage,
+    EditnotePage,
+    AddnotePage,
+    EventPage,
+    AddeventPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,7 +74,14 @@ import { MessageHelper } from '../providers/message-helper/message-helper';
     HomePage,
     TabsPage,
     SolatPage,
-    SettingPage
+    SettingPage,
+    TimetablePage,
+    MovrptPage,
+    ListPage,
+    EditnotePage,
+    AddnotePage,
+    EventPage,
+    AddeventPage
   ],
   providers: [
     StatusBar,

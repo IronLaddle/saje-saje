@@ -20,8 +20,8 @@ export class HomePage {
 	}
 
   constructor(
-  	public navCtrl: NavController, 
-  	private weatherProvider:WeatherProvider,
+	public navCtrl: NavController, 
+	private weatherProvider:WeatherProvider,
 	private storage:Storage, 
 	private messageHelper: MessageHelper,
 	public loadingCtrl: LoadingController) {

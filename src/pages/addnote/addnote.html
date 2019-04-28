@@ -1,0 +1,21 @@
+<ion-header>
+ 
+    <ion-navbar>
+      <ion-title>Add Note</ion-title>
+    </ion-navbar>
+   
+  </ion-header>
+   
+  <ion-content padding>
+    <ion-item>
+      <ion-label floating>Note name</ion-label>
+      <ion-input type="text" [(ngModel)]="notesItem.lsName"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Note Description</ion-label>
+        <ion-input type="text" [(ngModel)]="notesItem.lsDesc"></ion-input>
+    </ion-item>
+    <br>
+    <button ion-button block (click)="addNotesItem(notesItem)" color="ButtonColor" round>Add Note</button>
+  
+  </ion-content>

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
+import { MovrptPage } from '../movrpt/movrpt';
 
 @IonicPage()
 @Component({
@@ -16,7 +17,8 @@ export class SettingPage {
   constructor(
   	public navCtrl: NavController, 
   	public navParams: NavParams,
-  	private storage:Storage) {
+		private storage:Storage,
+		public alertCtrl: AlertController) {
 
 			this.countries = [
 				'Sepang',
@@ -49,7 +51,27 @@ export class SettingPage {
   	}
   	console.log(location);
   	this.storage.set('location', JSON.stringify(location));
-  	this.navCtrl.push(HomePage);
-  }
+		//this.navCtrl.push(MovrptPage);
+		
+		let alert = this.alertCtrl.create({
+			title: 'Confirm Location?',
+			buttons: [
+				{
+					text: 'Cancel',
+					role: 'cancel',
+					handler: () => {
+						console.log('Cancel clicked');
+					}
+				},
+				{
+					text: 'Okay',
+					handler: () => {
+						this.navCtrl.setRoot(MovrptPage);
+					}
+				}
+			]
+		});
+		alert.present();
+	}
 
 }

@@ -1,0 +1,69 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>My Uitm timetable</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let course of courses">
+    <ion-item style="text-align :center">
+      <ion-label text-wrap> <strong>{{course.csName}}</strong></ion-label>
+    </ion-item>
+  
+    <ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            Course Code : 
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+          <strong>{{course.csCode}}</strong>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+       <ion-item>
+        <ion-col size="6">
+            <strong>{{course.csDay}} </strong>
+        </ion-col>
+        <ion-col size="6">
+            {{course.csTime}}
+        </ion-col>
+       </ion-item>
+
+          <!-- <ion-item><strong>{{course.csDay}} </strong>{{course.csTime}}</ion-item> -->
+        <!-- <ion-col>
+          <ion-item>
+            Date n Time : 
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item text-wrap>
+          <strong>{{course.csDay}} </strong>{{course.csTime}}
+          </ion-item>
+        </ion-col> -->
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            Venue : 
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+          <strong>{{course.csVenue}}</strong>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

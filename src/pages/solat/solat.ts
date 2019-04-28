@@ -55,6 +55,9 @@ export class SolatPage {
         }else if (this.city1 == 'Labuan'){
           this.zone = 'WLY02';
           this.waktusolat(this.zone);
+        }else{
+          this.zone = 'SGR01';
+          this.waktusolat(this.zone);
         }
         
   		}

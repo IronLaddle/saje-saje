@@ -15,10 +15,10 @@
 	 <form (ngSubmit)="saveForm()">
 
 			<ion-item>
-					<ion-select item-left [(ngModel)]="city" name="countrycode" [selectedText]="city" [selectOptions]="{title:'Select Your City'}">
-						<ion-option *ngFor="let country of countries" [value]="country">{{country}}</ion-option>
-					</ion-select>
-				</ion-item>
+				<ion-select item-left [(ngModel)]="city" name="countrycode" [selectedText]="city" [selectOptions]="{title:'Select Your City'}">
+					<ion-option *ngFor="let country of countries" [value]="country">{{country}}</ion-option>
+				</ion-select>
+			</ion-item>
 
 			<ion-item>
 				<ion-label fixed>
