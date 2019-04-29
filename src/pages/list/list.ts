@@ -28,7 +28,16 @@ export class ListPage {
       //this.noteListRef = this.database.list('notes-list');
       //this.notelist = this.noteListRef.valueChanges();
      
-      this.notelist =  this.database.list('/notes-list').valueChanges();
+      this.notelist = this.getFiles(); //this.database.list('/notes-list').valueChanges();
+      //this.noteListRef = this.database.list<ListItem[]>('/notes-list');
+  }
+
+  getFiles() {
+    let ref = this.database.list('/notes-list');
+ 
+    return ref.snapshotChanges().map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
   }
 
   ionViewDidLoad() {
@@ -82,8 +91,38 @@ export class ListPage {
   }
 
   delete(i){
-    console.log('selectNoteItem' +  i);
-    ///this.database.list('notes-list').remove(i);
+     console.log('selectNoteItem' + JSON.stringify(i));
+     let key = i.key;
+     console.log(key);
+
+    this.actionSheetCtrl.create({
+      title: `${i.lsName}`,
+      buttons: [
+        {
+          text: 'Delete',
+          icon: 'md-trash',
+          role: 'destructive',
+          handler: () => {
+             let ref = this.database.list('/notes-list');
+             ref.remove(key);
+
+             let alert = this.alertCtrl.create({
+               title: 'Note deleted!',
+               buttons: ['OK']
+             });
+             alert.present();
+          }
+        },
+        {
+          text: 'Cancel',
+          icon:'md-close',
+          role: 'cancel',
+          handler: () => {
+            console.log("Taz has selected cancel button");
+          }
+        }
+      ]
+    }).present();
   }
  
 }

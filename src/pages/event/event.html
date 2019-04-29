@@ -13,8 +13,13 @@
 </ion-header>
  
 <ion-content padding>
-<!-- <ion-card *ngFor="let note of notelist | async; let i = index" (click)="delete(i)"> -->
-<ion-card *ngFor="let event of eventlist | async">
+<ion-card *ngFor="let event of eventlist | async; let i = index" (click)="delete(event)">
+    <!-- <ion-item>
+        <ion-label text-wrap> {{event?.key}}</ion-label>
+      </ion-item> -->
+    <ion-item>
+      <ion-label text-wrap>{{i+1}}</ion-label>
+    </ion-item>
     <ion-item>
       <ion-label text-wrap>Event Name : &nbsp;<strong>{{event?.eventName}}</strong></ion-label>
     </ion-item>

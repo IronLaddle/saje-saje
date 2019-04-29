@@ -14,8 +14,14 @@
    
   <ion-content>
 
-  <!-- <ion-card *ngFor="let note of notelist | async; let i = index" (click)="delete(i)"> -->
-  <ion-card *ngFor="let note of notelist | async">
+  <ion-card *ngFor="let note of notelist | async; let i = index" (click)="delete(note)">
+  <!-- <ion-card *ngFor="let note of notelist | async"> -->
+      <ion-item>
+          <ion-label text-wrap> {{i+1}}</ion-label>
+        </ion-item>
+        <!-- <ion-item>
+            <ion-label text-wrap> {{note?.key}}</ion-label>
+          </ion-item> -->
       <ion-item>
         <ion-label text-wrap> {{note?.lsName}}</ion-label>
       </ion-item>

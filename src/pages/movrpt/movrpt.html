@@ -9,6 +9,11 @@
 
 <ion-content padding>
 
+  <ion-row>
+    <ion-label (click)="hide()">Business Model</ion-label>
+    <div *ngIf="hideMe"> here your content</div>
+  </ion-row>
+
     <ion-card *ngFor="let report of reports">
         <ion-item style="text-align :center">
           <ion-label text-wrap> <strong>{{report.name}}</strong></ion-label>

@@ -9,6 +9,7 @@ import { NavController, NavParams } from 'ionic-angular';
 export class MovrptPage {
 
   reports:any;
+  hideMe : boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     
@@ -28,6 +29,11 @@ export class MovrptPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MovrptPage');
+  }
+
+  hide() {
+    console.log('Click')
+    this.hideMe = !this.hideMe;
   }
 
 }
