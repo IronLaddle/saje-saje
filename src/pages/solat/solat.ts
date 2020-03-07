@@ -68,6 +68,7 @@ export class SolatPage {
   waktusolat(citi: string){
     this.prayerTime.getPrayerTime(citi)
   	.subscribe(waktuSolat => {
+      console.log("provider" + JSON.stringify(waktuSolat));
       this.prayer = waktuSolat;
   	});
   }

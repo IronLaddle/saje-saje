@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Moventum Reports</ion-title>
+    <ion-title>Taz App</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,24 +16,43 @@
 
     <ion-card *ngFor="let report of reports">
         <ion-item style="text-align :center">
-          <ion-label text-wrap> <strong>{{report.name}}</strong></ion-label>
+          <ion-label text-wrap> <strong>Hi</strong></ion-label>
         </ion-item>
 
         <ion-card-content>
 
             <ion-row>
                 <ion-item text-wrap>
-                <strong>{{report.desc}}</strong>
+                <strong>Taz App</strong>
                 </ion-item>
             </ion-row>
 
             <ion-row>
               <ion-item text-wrap>
-              <strong>{{report.desc1}}</strong>
+              <strong>1/1/2020</strong>
               </ion-item>
           </ion-row>
 
+          <ion-row>
+            <ion-item text-wrap>
+            <strong>version : 2.0</strong>
+            </ion-item>
+        </ion-row>
+
       </ion-card-content>
     </ion-card> 
+
+
+ <!-- <div class="container">
+  <h4 text-center>Location Access</h4><button ion-button (click)="grantPermissionLocation()">
+	<strong>Enable Location</strong>
+  </button>
+</div>
+
+<div class="container">
+  <h4 text-center>Camera Access</h4><button ion-button (click)="grantPermissionCamera()">
+	<strong>Enable Camera</strong>
+  </button>
+</div> -->
 
 </ion-content>

@@ -18,8 +18,6 @@ import { WeatherProvider } from '../providers/weather/weather';
 import { SolatPage } from '../pages/solat/solat';
 import { PrayertimeProvider } from '../providers/prayertime/prayertime';
 import { MessageHelper } from '../providers/message-helper/message-helper';
-import { TimetablePage } from '../pages/timetable/timetable';
-import { MovrptPage } from '../pages/movrpt/movrpt';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -30,6 +28,9 @@ import { EditnotePage } from '../pages/editnote/editnote';
 import { AddnotePage } from '../pages/addnote/addnote';
 import { EventPage } from '../pages/event/event';
 import { AddeventPage } from '../pages/addevent/addevent';
+import { TimetablePage } from '../pages/timetable/timetable';
+import { MovrptPage } from '../pages/movrpt/movrpt';
+import { WaktuSolatPage } from '../pages/waktu-solat/waktu-solat';
 
 // AF2 Settings
 export const firebaseConfig = {
@@ -56,7 +57,8 @@ export const firebaseConfig = {
     EditnotePage,
     AddnotePage,
     EventPage,
-    AddeventPage
+    AddeventPage,
+    WaktuSolatPage
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,8 @@ export const firebaseConfig = {
     EditnotePage,
     AddnotePage,
     EventPage,
-    AddeventPage
+    AddeventPage,
+    WaktuSolatPage
   ],
   providers: [
     StatusBar,
@@ -89,7 +92,7 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WeatherProvider,
     PrayertimeProvider,
-    MessageHelper
+    MessageHelper,
   ]
 })
 export class AppModule {}
